@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pgyugo0v3lrj"
+path="res://.godot/imported/07 Dumpster Diving!.mp3-e320d31220236360392b7c9feae86783.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/07 Dumpster Diving!.mp3"
+dest_files=["res://.godot/imported/07 Dumpster Diving!.mp3-e320d31220236360392b7c9feae86783.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

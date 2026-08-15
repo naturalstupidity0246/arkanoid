@@ -6,10 +6,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlew8"]
 radius = 17.0
 
+[sub_resource type="Curve" id="Curve_vlew8"]
+_data = [Vector2(0, 0.57303375), 0.0, 0.0, 0, 0, Vector2(0.56914896, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bekt7"]
+colors = PackedColorArray(1, 0.77596396, 0.89970845, 1, 0.105047576, 0.016551876, 0.30345395, 1)
+
 [node name="ball" type="CharacterBody2D" unique_id=986437160]
 script = ExtResource("1_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2116629839]
+z_index = 1
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_7s4qf")
 
@@ -18,5 +26,20 @@ shape = SubResource("CircleShape2D_vlew8")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=804157242]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=813483841]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=813483841 groups=["ball"]]
 shape = SubResource("CircleShape2D_vlew8")
+
+[node name="respawnTimer" type="Timer" parent="." unique_id=726343271]
+one_shot = true
+
+[node name="effect" type="CPUParticles2D" parent="." unique_id=1325654163]
+z_index = -1
+amount = 1000
+texture = ExtResource("1_7s4qf")
+emission_shape = 1
+emission_sphere_radius = 12.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.0
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_vlew8")
+color_ramp = SubResource("Gradient_bekt7")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ckex0fi3lqrqb" path="res://scenes/paddle.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://beie4wp1a60gj" path="res://scripts/level.gd" id="1_w8frs"]
 [ext_resource type="PackedScene" uid="uid://bnyl0dtetbkel" path="res://scenes/ball.tscn" id="2_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://bejk6kved71lg" path="res://assets/0f0f0378-e0cc-4f27-aa82-be980337a7e4.png" id="4_mx8sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
 size = Vector2(32, 777)
@@ -21,6 +22,7 @@ anchor_mode = 0
 
 [node name="paddle" parent="." unique_id=856041809 instance=ExtResource("1_2q6dc")]
 position = Vector2(576, 600)
+wall_min_slide_angle = 0.0
 
 [node name="ball" parent="." unique_id=986437160 instance=ExtResource("2_w7c3h")]
 position = Vector2(576, 500)
@@ -45,7 +47,18 @@ position = Vector2(576, 800)
 [node name="collision" type="CollisionShape2D" parent="floor" unique_id=1609005013]
 shape = SubResource("RectangleShape2D_w8frs")
 
-[node name="ballRespawnTimer" type="Timer" parent="." unique_id=2050708770]
-one_shot = true
+[node name="TextureRect" type="TextureRect" parent="." unique_id=229280664]
+modulate = Color(0.19382259, 0.021515066, 0.16954896, 1)
+z_index = -4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -72.0
+offset_right = 1257.0
+offset_bottom = 807.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mx8sn")
 
 [connection signal="area_entered" from="floor" to="." method="_on_floor_area_entered"]

@@ -15,10 +15,19 @@ run/main_scene="res://scenes/level.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://baotrhybgj1vl"
+GlobalMusicPlayer="*uid://d317b476l2vae"
+
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+bricks=""
 
 [input]
 
@@ -50,3 +59,4 @@ ui_right={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.05766256, 0.008710394, 0.078888945, 1)

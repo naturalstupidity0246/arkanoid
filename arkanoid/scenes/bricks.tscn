@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bekt7"]
 size = Vector2(34, 36)
 
-[node name="bricks" type="RigidBody2D" unique_id=212875186]
+[sub_resource type="Gradient" id="Gradient_vlew8"]
+colors = PackedColorArray(0.3727004, 0.83257234, 0, 1, 1, 0.7939179, 0.78619313, 1)
+
+[node name="bricks" type="RigidBody2D" unique_id=212875186 groups=["bricks"]]
 gravity_scale = 0.0
 script = ExtResource("1_gysv1")
 
@@ -16,3 +19,19 @@ texture = ExtResource("1_d0w7u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1688771519]
 shape = SubResource("RectangleShape2D_bekt7")
+
+[node name="effect" type="CPUParticles2D" parent="." unique_id=709487359]
+emitting = false
+amount = 50
+one_shot = true
+preprocess = 0.5
+randomness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 24.0
+gravity = Vector2(0, -500)
+linear_accel_min = 0.1
+linear_accel_max = 0.1
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_vlew8")
