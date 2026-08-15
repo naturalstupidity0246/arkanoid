@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bp7ro2hhmg0lq"]
+
+[ext_resource type="PackedScene" uid="uid://ckex0fi3lqrqb" path="res://scenes/paddle.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://beie4wp1a60gj" path="res://scripts/level.gd" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://bnyl0dtetbkel" path="res://scenes/ball.tscn" id="2_w7c3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlew8"]
+size = Vector2(32, 777)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
+size = Vector2(32, 777)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(1216, 32)
+
+[node name="level" type="Node2D" unique_id=1669373897]
+script = ExtResource("1_w8frs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1419221609]
+anchor_mode = 0
+
+[node name="paddle" parent="." unique_id=856041809 instance=ExtResource("1_2q6dc")]
+position = Vector2(576, 600)
+
+[node name="ball" parent="." unique_id=986437160 instance=ExtResource("2_w7c3h")]
+position = Vector2(576, 500)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1837057378]
+
+[node name="leftwall" type="CollisionShape2D" parent="Walls" unique_id=1355293310]
+position = Vector2(-16, 388.5)
+shape = SubResource("RectangleShape2D_vlew8")
+
+[node name="rightwall" type="CollisionShape2D" parent="Walls" unique_id=395785080]
+position = Vector2(1168, 388.5)
+shape = SubResource("RectangleShape2D_w7c3h")
+
+[node name="roof" type="CollisionShape2D" parent="Walls" unique_id=1115826981]
+position = Vector2(576, -16)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="floor" type="Area2D" parent="." unique_id=603747331]
+position = Vector2(576, 800)
+
+[node name="collision" type="CollisionShape2D" parent="floor" unique_id=1609005013]
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="ballRespawnTimer" type="Timer" parent="." unique_id=2050708770]
+one_shot = true
+
+[connection signal="area_entered" from="floor" to="." method="_on_floor_area_entered"]
